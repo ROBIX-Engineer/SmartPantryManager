@@ -1,19 +1,220 @@
+
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:background="#F6F8F3">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- App header -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:background="#245C43">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SMART PANTRY"
+            android:textColor="#CDE8D5"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.12" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Good food starts here."
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Use what you have. Waste less."
+            android:textColor="#E0F0E5"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <!-- Main screen content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Pantry summary card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:background="#E2F0E5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="YOUR PANTRY"
+                    android:textColor="#245C43"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08" />
+
+                <TextView
+                    android:id="@+id/txtIngredientCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="0 ingredients"
+                    android:textColor="#183D2D"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Keep track of the food you already have."
+                    android:textColor="#426650"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <!-- Search field -->
+            <EditText
+                android:id="@+id/edtSearchPantry"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="22dp"
+                android:background="#FFFFFF"
+                android:hint="Search your ingredients..."
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:singleLine="true"
+                android:textColor="#26352B"
+                android:textColorHint="#7A887E"
+                android:textSize="14sp"
+                android:inputType="text"
+                android:autofillHints="none" />
+
+            <!-- Section heading -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="My ingredients"
+                    android:textColor="#20372A"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pantry"
+                    android:textColor="#4A795A"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <!-- Pantry list will go here -->
+            <TextView
+                android:id="@+id/txtEmptyPantry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:padding="24dp"
+                android:gravity="center"
+                android:background="#FFFFFF"
+                android:text="Your pantry is empty.\nAdd your first ingredient to get started."
+                android:textColor="#68766C"
+                android:textSize="15sp"
+                android:lineSpacingExtra="6dp" />
+
+            <!-- Add ingredient button -->
+            <Button
+                android:id="@+id/btnAddIngredient"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="18dp"
+                android:text="+  Add Ingredient"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#245C43" />
+
+            <!-- Recipe navigation button -->
+            <Button
+                android:id="@+id/btnSuggestedRecipes"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="10dp"
+                android:text="Find Recipes"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textColor="#245C43"
+                android:backgroundTint="#E2F0E5" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Bottom navigation -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#FFFFFF"
+        android:elevation="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="⌂\nPantry"
+            android:textColor="#245C43"
+            android:textStyle="bold"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="♡\nRecipes"
+            android:textColor="#68766C"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="⚙\nSettings"
+            android:textColor="#68766C"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

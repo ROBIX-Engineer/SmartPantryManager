@@ -1,6 +1,6 @@
-
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -77,7 +77,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="0 ingredients"
+                    android:text="Ingredients: 0"
                     android:textColor="#183D2D"
                     android:textSize="28sp"
                     android:textStyle="bold" />
@@ -92,7 +92,7 @@
 
             </LinearLayout>
 
-            <!-- Search field -->
+            <!-- Search ingredients -->
             <EditText
                 android:id="@+id/edtSearchPantry"
                 android:layout_width="match_parent"
@@ -109,7 +109,7 @@
                 android:inputType="text"
                 android:autofillHints="none" />
 
-            <!-- Section heading -->
+            <!-- Ingredient section heading -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -135,7 +135,15 @@
 
             </LinearLayout>
 
-            <!-- Pantry list will go here -->
+            <!-- Dynamic ingredient list -->
+            <LinearLayout
+                android:id="@+id/ingredientListContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical" />
+
+            <!-- Empty pantry or search message -->
             <TextView
                 android:id="@+id/txtEmptyPantry"
                 android:layout_width="match_parent"
@@ -162,7 +170,7 @@
                 android:textColor="#FFFFFF"
                 android:backgroundTint="#245C43" />
 
-            <!-- Recipe navigation button -->
+            <!-- Find recipes button -->
             <Button
                 android:id="@+id/btnSuggestedRecipes"
                 android:layout_width="match_parent"
@@ -180,6 +188,7 @@
 
     <!-- Bottom navigation -->
     <LinearLayout
+        android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:orientation="horizontal"
@@ -187,33 +196,48 @@
         android:background="#FFFFFF"
         android:elevation="8dp">
 
+        <!-- Pantry navigation -->
         <TextView
+            android:id="@+id/navPantry"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
             android:text="⌂\nPantry"
             android:textColor="#245C43"
             android:textStyle="bold"
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            android:contentDescription="Pantry tab" />
 
+        <!-- Recipes navigation -->
         <TextView
+            android:id="@+id/navRecipes"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
             android:text="♡\nRecipes"
             android:textColor="#68766C"
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            android:contentDescription="Recipes tab" />
 
+        <!-- Settings navigation -->
         <TextView
+            android:id="@+id/navSettings"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
             android:text="⚙\nSettings"
             android:textColor="#68766C"
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            android:contentDescription="Settings tab" />
 
     </LinearLayout>
 
